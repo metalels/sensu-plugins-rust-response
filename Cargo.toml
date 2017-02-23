@@ -1,0 +1,20 @@
+[package]
+name    = "sensu-plugins-rust-response"
+version = "0.1.0"
+authors = ["metalels <metalels86@gmail.com>"]
+
+[[bin]]
+name = "metrics-response-url"
+path = "src/bin/metrics-response-url.rs"
+[[bin]]
+name = "metrics-response-socket"
+path = "src/bin/metrics-response-socket.rs"
+
+[dependencies]
+"getopts"       = "*"
+"hyper"         = "*"
+"openssl"       = "0.9.7"
+"hyper-openssl" = "0.2.2"
+
+[replace]
+"openssl:0.9.7" = { git = "https://github.com/metalels/rust-openssl.git", branch = "develop" }

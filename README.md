@@ -19,14 +19,15 @@ Sensu plugins uses Rust.
 Usage: metrics-response-url URLS [options]
 
 Requires:
-  URLS: URL,URL,...  set target url(s: use [,] to joins multi urls)
+  URLS: URL,URL,...      set target url(s: use [,] to joins multi urls)
 
 Options:
-  -p, --prefix PREFIX set prefix to output keys
-  -t, --http2         enable to ignore http2 access (current not supported)
-  -i, --ignore        enable to ignore ssl certification error
-  -d, --debug         print debug logs
-  -h, --help          print this help menu
+  -p, --prefix PREFIX    set prefix to output keys
+  -t, --timeout TIMEOUT  set timeout secounds to http1/2 client
+  -2, --http2            enable to http2 access(current not support)
+  -i, --ignore           enable to ignore ssl certification error
+  -d, --debug            print debug logs
+  -h, --help             print this help menu
 ```
 
 ## Authors ##
