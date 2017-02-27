@@ -42,8 +42,8 @@ fn main() {
   opts.optopt("t", "timeout", "set timeout secounds to http1/2 client", "TIMEOUT");
   opts.optflag("2", "http2", "enable to http2 access(current not support)");
   opts.optflag("i", "ignore", "enable to ignore ssl certification error");
-  opts.optflag("d", "debug", "print debug logs");
-  opts.optflag("h", "help", "print this help menu");
+  opts.optflag("D", "debug", "print debug logs");
+  opts.optflag("H", "help", "print this help menu");
 
   let matches = match opts.parse(&args[1..]) {
     Ok(m) => { m }
@@ -53,7 +53,7 @@ fn main() {
     }
   };
 
-  if matches.opt_present("h") {
+  if matches.opt_present("H") {
     print_usage(&program, opts);
     return;
   };
@@ -67,7 +67,7 @@ fn main() {
   let mut ignore = false;
   let mut http2 = false;
 
-  if matches.opt_present("d") {
+  if matches.opt_present("D") {
     debug = true;
   };
   if matches.opt_present("i") {
