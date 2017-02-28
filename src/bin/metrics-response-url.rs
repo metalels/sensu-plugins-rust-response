@@ -18,11 +18,18 @@ fn print_usage(program: &str, opts: Options) {
 }
 
 fn print_value(targetname: &str, value: f64) {
-  println!("url.{} {} {:?}", targetname, value, time_now_unix());
+  println!("url.{} {} {:?}", get_url_key(targetname), value, time_now_unix());
 }
 
 fn print_value_with_prefix(groupname: &str, targetname: &str, value: f64) {
-  println!("{}.url.{} {} {:?}", groupname, targetname, value, time_now_unix());
+  println!("{}.url.{} {} {:?}", groupname, get_url_key(targetname), value, time_now_unix());
+}
+
+fn get_url_key(url: &str) -> String {
+  let mut keyname = url.to_string();
+  keyname = keyname.replace("/", "_");
+  keyname = keyname.replace(":", ".");
+  keyname
 }
 
 fn time_now_unix() -> u64 {
